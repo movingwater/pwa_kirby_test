@@ -1,29 +1,37 @@
-<?php snippet('header') ?>
+<!DOCTYPE html>
+<html class="js no-touchevents" lang="en">
 
-  <main class="main" role="main">
-    
-    <header class="wrap">
-      <h1><?= $page->title()->html() ?></h1>
-      <div class="intro text">
-        <?= $page->intro()->kirbytext() ?>
-      </div>
-      <hr />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Web App - Test</title>
+    <?= css('assets/css/style.css') ?>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,600,300italic,600italic" rel="stylesheet" type="text/css">
+    <link rel="manifest" href="<?= url('manifest.json') ?>">
+    <meta name="theme-color" content="#29BDBB">
+    <link rel="icon" sizes="192x192" href="<?= url('launcher-icon-8x.png') ?>">
+</head>
+
+<body>
+    <header>
+        <div class="content">
+            <h3>Test</h3>
+        </div>
     </header>
-
-    <div class="text wrap">
-      <?= $page->text()->kirbytext() ?>
+    <div class="container">
+        <div id="main" class="content">
+            <ul class="arrivals-list" data-bind="foreach: arrivals">
+                <li class="item">
+                    <span class="title" data-bind="html: title"></span>
+                    <span class="status" data-bind="html: year"></span>
+                    <span class="date" data-bind="html: text"></span>
+                    <span class="url" data-bind="html: url"></span>
+                </li>
+            </ul>
+        </div>
     </div>
-  
-    <section class="projects-section">
-      
-      <div class="wrap wide">
-        <h2>Latest Projects</h2>
-        <?php snippet('showcase', ['limit' => 3]) ?>
-        <p class="projects-section-more"><a href="<?= page('projects')->url() ?>" class="btn">show all projects &hellip;</a></p>
-      </div>
-      
-    </section>
+    <?= js('assets/js/build/vendor.min.js') ?>
+    <?= js('assets/js/build/script.min.js') ?>
+</body>
 
-  </main>
-
-<?php snippet('footer') ?>
+</html>
