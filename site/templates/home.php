@@ -22,9 +22,9 @@
         <div id="main" class="content">
             <ul class="arrivals-list" data-bind="foreach: arrivals">
                 <li class="item">
+                    <span class="image" data-bind="html: image"></span>
                     <span class="title" data-bind="html: title"></span>
-                    <span class="status" data-bind="html: year"></span>
-                    <span class="date" data-bind="html: text"></span>
+                    <span class="date" data-bind="markdown: text"></span>
                     <span class="url" data-bind="html: url"></span>
                 </li>
             </ul>

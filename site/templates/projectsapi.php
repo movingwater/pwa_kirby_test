@@ -4,7 +4,7 @@
 
 header('Content-type: application/json; charset=utf-8');
 
-$data = $pages->find('projects')->children()->visible()->flip()->paginate(10);
+$data = $pages->find('blog')->children()->visible()->flip();
 $json = array();
 
 foreach($data as $article) {
@@ -13,7 +13,7 @@ foreach($data as $article) {
     'url'   => (string)$article->url(),
     'title' => (string)$article->title(),
     'text'  => (string)$article->text(),
-    'year'  => (string)$article->year()
+    'image'  => (string)$article->image()->crop(100),
   );
 
 }

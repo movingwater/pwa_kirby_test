@@ -3,8 +3,8 @@ var Arrivals = (function() {
         var self = this;
         self.title = "";
         self.text = "";
-        self.year = "";
         self.url = "";
+        self.image = "";
     }
 
     function ArrivalApiService() {
@@ -45,8 +45,8 @@ var Arrivals = (function() {
                 var vm = new ArrivalViewModel();
                 vm.title = data.title;
                 vm.text = data.text;
-                vm.year = data.year;
                 vm.url = data.url;
+                vm.image = data.image;
                 return vm;
             }
             return null;
